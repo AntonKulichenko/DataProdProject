@@ -1,0 +1,51 @@
+---
+title       : Energy Consumption Analysis
+subtitle    : Course Project
+author      : Anton Kulichenko
+job         : Business Analytics student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      #
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Description
+
+This Shiny App is written to provide  energy consumption information, namely:
+
+- gas
+- electricity
+- water
+
+for the years 2012 to 2014.
+
+---
+## Details
+
+The source Excel sheet contains the figures for each of the three meters on a weekly basis.
+
+---
+## Example
+
+Here are the first 10 lines of the Excel file:
+
+```{r head-10-lines, echo=FALSE}
+data <- read.csv("consumption.csv", sep=",", header=T)
+subset(data, select=c(Date,PriceGas,PriceElec,PriceWater))[1:10, ]
+```
+
+---
+## Lessons learned
+
+- Necessary to use reactive function as soon as I have 2 inputs or more.
+
+- In the renderPlot function the name of the dataframe must be followed by parentheses.
+
+---
+## Conclusion
+
+- Shiny gives R a decent interactivity sufficient for everyday apps.
+
+- Slidify rocks for creating quick nicely-looking presentations.
